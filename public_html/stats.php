@@ -28,7 +28,7 @@ $totalUpdatesLast24h = DB::queryFirstField('SELECT count(1) FROM zrom_stats WHER
     <div class="container">
       <!-- Page Header -->
       <div class="row">
-        <div class="span12"><div class="page-header"><h1>@agustindev Statistics</h1></div></div>
+        <div class="span12"><div class="page-header"><h1>ROM Statistics of @agustindev</h1></div></div>
       </div>
 
 <div class="row">
@@ -55,13 +55,13 @@ $totalUpdatesLast24h = DB::queryFirstField('SELECT count(1) FROM zrom_stats WHER
         <tr><th>ROM</th><th>Total</th></tr>
       </thead>
       <tbody>
-      <?
+      <?php
 	  $romList = DB::query('SELECT rom_name, rom_version, COUNT( 1 ) as rom_tot FROM  zrom_stats GROUP BY rom_name, rom_version ORDER BY 2 DESC LIMIT 0 , 50');
 
       foreach ($romList as $rom) {
       ?>
-        <tr><td><?=$rom['rom_name'] . " " . $rom['rom_version'] ?></td><td><?=$rom['rom_tot']?></td></tr>
-      <? } ?>
+        <tr><td><?php=$rom['rom_name'] . " " . $rom['rom_version'] ?></td><td><?php=$rom['rom_tot']?></td></tr>
+      <?php } ?>
       </tbody>
     </table>
   </div>
@@ -72,18 +72,18 @@ $totalUpdatesLast24h = DB::queryFirstField('SELECT count(1) FROM zrom_stats WHER
         <tr><th>Device</th><th>Total</th></tr>
       </thead>
       <tbody>
-      <?
+      <?php
 	  $romList = DB::query('SELECT device_name, COUNT( 1 ) as rom_tot FROM  zrom_stats GROUP BY device_name ORDER BY 2 DESC LIMIT 0 , 50');
 
       foreach ($romList as $rom) {
       ?>
-        <tr><td><?=$rom['device_name']?></td><td><?=$rom['rom_tot']?></td></tr>
-      <? } ?>
+        <tr><td><?php=$rom['device_name']?></td><td><?=$rom['rom_tot']?></td></tr>
+      <?php } ?>
       </tbody>
     </table>
   </div>
 </div>
     </div>
-	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>

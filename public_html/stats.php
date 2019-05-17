@@ -13,7 +13,8 @@ $totalUpdatesLast24h = DB::queryFirstField('SELECT count(1) FROM zrom_stats WHER
   <head>
     <meta charset="utf-8">
     <title>ROM Statistics</title>
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style type="text/css">
       body {
         padding: 40px;
@@ -21,23 +22,14 @@ $totalUpdatesLast24h = DB::queryFirstField('SELECT count(1) FROM zrom_stats WHER
       table tbody tr td:first-child {
         width: 150px;
       }
-    </style>
+    </style>        
   </head>
   <body>
     <div class="container">
       <!-- Page Header -->
       <div class="row">
-        <div class="span12"><div class="page-header"><h1>ROM Statistics</h1></div></div>
+        <div class="span12"><div class="page-header"><h1>@agustindev Statistics</h1></div></div>
       </div>
-
-      <!-- Content -->
-      <div class="row">
-  <div class="span12">
-    <p> 
-      Devices that have not checked in within the last 90 days are periodically removed from the database.  Statistics may be delayed by up to one minute.
-    </p>
-  </div>
-</div>
 
 <div class="row">
   <div class="span12">

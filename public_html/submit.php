@@ -3,29 +3,42 @@
 require_once('config.inc.php');
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
-	$protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
-	header($protocol . ' 405 Method Not Allowed');
+	//$protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+	//header($protocol . ' 405 Method Not Allowed');
 
 	die('Not permited');
 }
 
-$postData = $_POST;
+$postData = getallheaders();
 
-$device_hash = $postData['device_hash'];
-$device_name = $postData['device_name'];
-$device_version = $postData['device_version'];
-$device_country = $postData['device_country'];
-$device_carrier = $postData['device_carrier'];
-$device_carrier_id = $postData['device_carrier_id'];
+$device_hash = $postData['deviceHash'];
+$device_name = $postData['deviceName'];
+$device_version = $postData['deviceVersion'];
+$device_country = $postData['deviceCountry'];
+$device_carrier = $postData['deviceCarrier'];
+$device_carrier_id = $postData['deviceCarrierId'];
 
-$rom_name = $postData['rom_name'];
-$rom_version = $postData['rom_version'];;
+$rom_name = $postData['romName'];
+$rom_version = $postData['romVersion'];
 
-if ((empty($device_hash) || empty($device_name) || empty($device_version) || empty($rom_name))) {
-	$protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
-	header($protocol . ' 400 Bad Request');
+if (empty($device_hash))
+{
+    die('Incomplete hash');
+}
 
-	die('Incomplete data');
+if (empty($device_name))
+{
+    die('Incomplete name');
+}
+
+if (empty($device_version))
+{
+    die('Incomplete version');
+}
+
+if (empty($rom_name))
+{
+    die('Incomplete ROM');
 }
 
 $deviceData = DB::query('SELECT * FROM zrom_stats WHERE device_hash = %s', $device_hash);

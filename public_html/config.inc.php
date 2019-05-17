@@ -1,6 +1,6 @@
 <?php
 
-require_once('meekrodb.2.1.class.php');
+require_once('meekrodb.2.3.class.php');
 
 DB::$host = 'localhost'; 			// Database host name 
 DB::$dbName = 'romstat_db';			// Database name

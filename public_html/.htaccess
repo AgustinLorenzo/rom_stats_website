@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteRule ^$ stats.php
 RewriteRule ^submit$ submit.php
+Options -Indexes

@@ -1,4 +1,4 @@
-<?
+<?php
 
 require_once('config.inc.php');
 
@@ -70,3 +70,5 @@ if ($deviceData) {
 }
 
 echo "OK";
+
+?>

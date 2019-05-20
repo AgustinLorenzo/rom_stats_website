@@ -70,5 +70,3 @@ if ($deviceData) {
 }
 
 echo "OK";
-
-?>

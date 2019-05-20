@@ -1,0 +1,22 @@
+body
+{
+	padding: 20px;
+}
+
+table tbody tr td:first-child
+{
+	width: 215px;
+	text-align: center;
+}
+
+th,td
+{
+	text-align: center;
+}
+
+.page-header
+{
+	padding-bottom: 9px;
+	margin: 0 0 20px;
+	border-bottom: 1px solid #eee;
+}

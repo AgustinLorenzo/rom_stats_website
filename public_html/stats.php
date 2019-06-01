@@ -76,6 +76,23 @@ $totalUpdatesLast24h = DB::queryFirstField('SELECT count(1) FROM zrom_stats WHER
       </tbody>
     </table>
   </div>
+   <div class="col">
+    <h2>Installs by Country</h2>
+    <table class="table table-striped table-bordered table-condensed">
+      <thead>
+        <tr><th>Country</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+      <?php
+      $list_country = DB::query('SELECT device_country,COUNT(1) AS total FROM zrom_stats GROUP BY device_country ORDER BY total DESC LIMIT 0,50;');
+
+      foreach ($list_country as $country) {
+      ?>
+        <tr><td><?=$country['device_country']?></td><td><?=$country['total']?></td></tr>
+      <?php } ?>
+      </tbody>
+    </table>
+  </div>
 </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
